@@ -319,3 +319,28 @@ hr{border:0;border-top:1px solid var(--rule);margin:3rem 0}
   .hero{padding:3.2rem 0 2.4rem}
   .card,.offer{padding:1.35rem}
 }
+
+/* ---------- rank chart: HTML, not SVG, so text stays readable on phones -- */
+
+.chart-title{
+  font-family:var(--sans);font-size:.86rem;font-weight:600;
+  color:var(--ink);margin:0 0 1.1rem;
+}
+.ranks{display:grid;gap:.55rem}
+.rank{display:grid;grid-template-columns:5.8rem 1fr 4.6rem;align-items:center;gap:.75rem}
+.rank .rk-l{font-size:.86rem;color:var(--ink-faint);text-align:right;line-height:1.25}
+.rank .rk-b{display:block;height:15px;background:var(--surface-2);border-radius:4px;overflow:hidden}
+.rank .rk-b i{display:block;height:100%;background:var(--rule-strong);border-radius:4px}
+.rank .rk-v{font-size:.86rem;color:var(--ink-faint);white-space:nowrap}
+.rank.on .rk-b i{background:var(--accent)}
+.rank.on .rk-v{color:var(--ink);font-weight:600;font-size:.95rem}
+.rank.off .rk-l,.rank.off .rk-v{opacity:.72}
+.rank.off .rk-b i{background:var(--rule-strong);opacity:.6}
+@media(max-width:560px){
+  .rank{grid-template-columns:4.2rem 1fr auto;gap:.55rem}
+  .rank .rk-l,.rank .rk-v,.rank.on .rk-v{font-size:.78rem}
+  .rank .rk-b{height:13px}
+}
+
+/* three-up stat tiles stack on a phone instead of leaving an empty cell */
+@media(max-width:560px){.stats{grid-template-columns:1fr}}
